@@ -1,1 +1,1 @@
-# Sudoku using HTM, CSS, JAVASCRIPT
+# Sudoku using HTML, CSS, JAVASCRIPT
