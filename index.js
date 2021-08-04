@@ -205,6 +205,10 @@ function updateMove()
             //clear the selected vars
             selectedNum = null;
             selectedTile = null;
+             //check if board is completed
+            if (checkDone()){
+                endgame();
+            }
             ///if the number doesnot match the solution key
            
         }
