@@ -207,7 +207,7 @@ function updateMove()
             selectedTile = null;
              //check if board is completed
             if (checkDone()){
-                endgame();
+                endGame();
             }
             ///if the number doesnot match the solution key
            
