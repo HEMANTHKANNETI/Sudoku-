@@ -94,7 +94,7 @@ function startTimer()
     //sets time remaining based on input
     if (id("Time-1").checked) timeRemaining = 180;
     else if (id("Time-2").checked) timeRemaining = 300;
-    else timeRemaining = 600;
+    else timeRemaining = 900;
     //Sets the timer for first second
     id("timer").textContent = timeConversion(timeRemaining);
     //sets timer to update every second
@@ -111,7 +111,7 @@ function startTimer()
 function timeConversion(time) 
 {
     let minutes = Math.floor(time/60);
-    if (minutes < 10) minutes = "0" + minutes;
+    if (minutes < 15) minutes = + minutes;
     let seconds = time % 60;
     if (seconds <10) seconds = "0" + seconds;
     return minutes + " :" + seconds; 
