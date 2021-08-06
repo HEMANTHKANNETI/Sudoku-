@@ -4,7 +4,7 @@ const easy = [
     "685329174971485326234761859362574981549618732718293465823946517197852643456137298"
   ];
   const medium = [
-    "--9-------4----6-758-31----15--4-36-------4-8----9-------75----3-------1--2--3--",
+    "6--4---8----9-----5------2-----4----9--5--4-8---6------917--23-3-5----4--7------5",
     "619472583243985617587316924158247369926531478734698152891754236365829741472163895"
   ];
   const hard = [
@@ -19,16 +19,6 @@ var selectedNum;
 var selectedTile;
 var disableSelect;
 
-//onload 36
-//startGame 64
-//startTimer 93
-//timeConversion 109
-//generateBoard 117
-//updateMove 185
-//checkDone 237
-//endGame 245
-//checkCorrect 257
-//clearPrevious 267
 
 
 
@@ -38,17 +28,23 @@ window.onload = function() {
     id("start-btn").addEventListener("click", startGame);
     //Add eventListener to each number in number-container
     for (let i = 0; i < id("number-container").children.length; i++){
-        id("number-container").children[i].addEventListener("click", function(){
+        id("number-container").children[i].addEventListener("click", function()
+        {
             //if selecting is not disabled
-            if (!disableSelect) {
+            if (!disableSelect) 
+            {
                 //if number is already selected
-                if(this.classList.contains("selected")) {
+                if(this.classList.contains("selected")) 
+                {
                     //then remove selection
                     this.classList.remove("selected");
                     selectedNum = null;
-                } else {
+                } 
+                else 
+                {
                     //deselect all other numbers
-                    for (let i = 0; i < 9; i++){
+                    for (let i = 0; i < 9; i++)
+                    {
                         id("number-container").children[i].classList.remove("selected");
                     }
                     //select it and update selectedNum variable
@@ -98,7 +94,7 @@ function startTimer()
     //sets time remaining based on input
     if (id("Time-1").checked) timeRemaining = 180;
     else if (id("Time-2").checked) timeRemaining = 300;
-    else timeRemaining = 900;
+    else timeRemaining = 600;
     //Sets the timer for first second
     id("timer").textContent = timeConversion(timeRemaining);
     //sets timer to update every second
@@ -115,7 +111,7 @@ function startTimer()
 function timeConversion(time) 
 {
     let minutes = Math.floor(time/60);
-    if (minutes < 15) minutes = minutes;
+    if (minutes < 10) minutes = "0" + minutes;
     let seconds = time % 60;
     if (seconds <10) seconds = "0" + seconds;
     return minutes + " :" + seconds; 
@@ -205,8 +201,9 @@ function updateMove()
             //clear the selected vars
             selectedNum = null;
             selectedTile = null;
-             //check if board is completed
-            if (checkDone()){
+            //check if board is completed
+            if (checkDone())
+            {
                 endGame();
             }
             ///if the number doesnot match the solution key
@@ -224,10 +221,12 @@ function updateMove()
                 //substract lives by one
                 lives--;
                 //if no lives left end the game
-                if (lives === 0) {
+                if (lives === 0) 
+                {
                     endGame();
                 }
-                else {
+                else 
+                {
                     //if lives is not equal to zero
                     //update lives text
                     id("lives").textContent = "Lives Remaining: " + lives;
@@ -248,11 +247,13 @@ function updateMove()
 }
 
 
-function checkDone() {
-    let tiles = qsa(".tiles");
-    for (let i = 0; i < tiles.length; i++){
+function checkDone() 
+{
+    let tiles = qsa(".tile");
+    for (let i = 0; i < tiles.length; i++)
+    {
         if(tiles[i].textContent === "") return false;
-    }
+    }    
     return true;
 }
 
